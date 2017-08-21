@@ -15,22 +15,22 @@
 
 	<tr>
 		<td align="right">Student Name:</td>
-		<td><input type="text" name="s_name"></td>
+		<td><input type="text" name="s_name" value =""></td>
 	</tr>
 		
 	<tr>
 		<td align="right">School Name</td>
-		<td><input type="text" name="s_school"></td>
+		<td><input type="text" name="s_school" value =""></td>
 	</tr>
 	
 	<tr>
 		<td align="right">Roll No.</td>
-		<td><input type="text" name="roll_no"></td>
+		<td><input type="text" name="roll_no" value =""></td>
 	</tr>
 
 	<tr>
 		<td align="right">Result</td>
-		<td><input type="text" name="result"></td>
+		<td><input type="text" name="result" value =""></td>
 	</tr>
 
 	<tr>
@@ -38,7 +38,10 @@
 	</tr>
 
 	</table>
+</form>
 
+<h1 align="center"><?php echo @$_GET['deleted']; ?></h1>
+<h1 align="center"><?php echo @$_GET['updated']; ?></h1>
 <table width="800" border="5" align="center">
 	<tr>
 		<th>Serial No:</th>
@@ -76,8 +79,8 @@ while ($row = mysql_fetch_array($run)) {
 		<td><?php echo $s_school; ?></td>
 		<td><?php echo $roll_no; ?></td>
 		<td><?php echo $result; ?></td>
-		<td>Delete</td>
-		<td>Edit</td>
+		<td><a href= "delete.php?del=<?php echo $id; ?>"> Delete</a></td>
+		<td><a href="edit.php?edit=<?php echo $id; ?>">Edit</a></td>
 		
 	</tr>
 	<?php
