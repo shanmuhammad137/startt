@@ -5,7 +5,7 @@ mysql_select_db("school_students");
 
 $edit_record = @$_GET['edit'];
 
-$query = "select * from students where id='$edit_record'";
+$query = "select * from crud where id='$edit_record'";
 
 $run = mysql_query($query);
 
@@ -17,7 +17,8 @@ while ($row=mysql_fetch_array($run)) {
 	$sschool= $row['s_school'];
 	$roll= $row['roll_no'];
 	$result= $row['result'];
-	
+	$semail= $row['s_email'];
+	$spassword= $row['s_password'];
 }
 
  ?>
@@ -57,6 +58,16 @@ while ($row=mysql_fetch_array($run)) {
 		<td><input type="text" name="result" value="<?php echo $result;?>"></td>
 	</tr>
 
+		<tr>
+		<td align="right">Email</td>
+		<td><input type="email" name="email" value="<?php echo $semail;?>"></td>
+	</tr>
+
+	<tr>
+		<td align="right">Password</td>
+		<td><input type="password" name="password" value="<?php echo $spassword;?>"></td>
+	</tr>
+
 	<tr>
 		<td align="center" colspan="5"><input type="submit" name="submit" value="Update Now"></td>
 	</tr>
@@ -84,8 +95,10 @@ if (isset($_GET['submit'])) {
 	$school = $_GET['s_school'];
 	$roll = $_GET['roll_no'];
 	$result = $_GET['result'];
+	$email = $_GET['s_email'];
+	$password = $_GET['s_password'];
 
-	$query1 = "update students set s_name= '$name',s_school= '$school', roll_no='$roll',result='$result' where id = '$ediid'";
+	$query1 = "update crud set s_name= '$name',s_school= '$school', roll_no='$roll',result='$result', s_email='$email', spassword='$password' where id = '$ediid'";
 
 
 
